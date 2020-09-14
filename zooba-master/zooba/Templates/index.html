@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!-- We modied the file -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zooba</title>
+
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/services/s1.png') }}">
+    <!--  Bootstrap css file  -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+
+    <!--  font awesome icons  -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/all.min.css') }}">
+
+
+    <!--  Magnific Popup css file  -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='vendor/Magnific-Popup/dist/magnific-popup.css')}}">
+
+
+    <!--  Owl-carousel css file  -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='vendor/owl-carousel/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='vendor/owl-carousel/css/owl.theme.default.min.css')}}">
+
+    <!--  custom css file  -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+    <!--  Responsive css file  -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/responsive.css')}}">
+
+</head>
+
+<body>
+
+
+    <!--  ======================= Start Header Area ============================== -->
+
+    <header class="header_area">
+        <div class="main-menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#"><img src="{{ url_for('static',filename='img/logo.png')}}" alt="logo"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="mr-auto"></div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('login')}}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('signup')}}">Signup</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tech">Technologies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#testimonials">Testimonials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">contact</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!--  ======================= End Header Area ============================== -->
+
+    <!--  ======================= Start Main Area ================================ -->
+    <main class="site-main">
+
+
+        <!--  ======================= Start Banner Area =======================  -->
+        <section class="site-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 site-title">
+                        <h3 class="title-text">School overwhelming?</h3>
+                        <h4 class="title-text text-uppercase">Introducing</h4>
+                        <h1 class="title-text text-uppercase" style="padding-bottom: 30px;">ZOOBA</h1>
+                        
+                        <div class="site-buttons">
+                            <div class="d-flex flex-row flex-wrap">
+                                <a type="button"  href="{{url_for('account')}}" class="btn button primary-button mr-4 text-uppercase">
+
+                                Try Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 banner-image">
+                        <img src="{{ url_for('static',filename='img/banner/banner-image.png')}}" alt="banner-img" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--  ======================= End Banner Area =======================  -->
+
+        <!--  ========================= About Area ==========================  -->
+
+        <section id="about" class="about-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="about-image">
+                            <img src="{{ url_for('static',filename='img/about-us.png')}}" alt="About us" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 about-title">
+                        <h2 class="text-uppercase pt-5">
+                            <span>Our Mission</span>
+                        </h2>
+                        <div class="paragraph py-4 w-75">
+                            <p class="para">
+                                Our mission is to provide a more efficient and effective way of managing and choosing courses in highschool.
+                                We want to allow students like you to be able to stay on top of your schoolwork with ease and carve a highschool experience tailormade for you.
+                                My cofounder and I were just as frustrated with how hard it is to navigate highschool easily.
+                            </p>
+                            <p class="para">
+                                When my cofounder and I gained the technical skills needed to build tools to fix these problems, we got right on it.
+                                We don't want kids to go through what we had to, and we hope that you love our product. We help streamline ways to communicate
+                                your academic standing, help you get on top of school work, gain new friendships, and strengthen the ones you already have.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  ========================= End About Area ==========================  -->
+         <!--  ====================== Start Services Area =============================  -->
+
+         <section id="services"class="services-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center services-title">
+                        <h1 class="text-uppercase title-text">Services Offered</h1>
+                    </div>
+                </div>
+                <div class="container services-list">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="services">
+                                <div class="sevices-img text-center py-4">
+                                    <img src="{{ url_for('static',filename='img/services/s1.png')}}" alt="Services-1">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-uppercase font-roboto">Automatic GPA Calculation</h5>
+                                    <p class="card-text text-secondary">
+                                        We created an algorithm to parse the grades stored in Home Access to
+                                        provide you with your most up to date GPA in a fraction of a second. All it takes
+                                        is one click and a dream!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="services">
+                                <div class="sevices-img text-center py-4">
+                                    <img src="{{ url_for('static',filename='img/services/s2.png')}}" alt="Services-2">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-uppercase font-roboto">Course Reccomendation</h5>
+                                    <p class="card-text text-secondary">
+                                        Using our course reccommendation algorithm, we give you a list 
+                                        of classes you are most likely to be interested in based off of your favorite classes. 
+                                        We tailormake your highschool experience.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="services">
+                                <div class="sevices-img text-center py-4">
+                                    <img src="{{ url_for('static',filename='img/services/s3.png')}}" alt="Services-3">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-uppercase font-roboto">Assignment Notifier</h5>
+                                    <p class="card-text text-secondary">
+                                        By using a similar algorithm to that of the GPA Calculation one, we
+                                        can give you the list of upcoming assignments that you can get ahead on. Site statistics
+                                        show users improve their grades after using it. 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="services">
+                                <div class="sevices-img text-center py-4">
+                                    <img src="{{ url_for('static',filename='img/services/s4.png')}}" alt="Services-4">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-uppercase font-roboto">Friendship</h5>
+                                    <p class="card-text text-secondary">
+                                        Using our user similarity algorithm, you can learn more
+                                        about your friend's interests! We also recommend new friends with similar tastes as you. 
+                                        Laslty, you can personalize profiles and see classes others are taking. 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  ====================== End Services Area =============================  -->
+
+         <!--  ======================== End Brands Area ==============================  -->
+
+         <div id="tech" class="tech">
+            <img src="{{ url_for('static',filename='img/tech.png')}}" alt="About us" class="img-fluid">
+        </div>
+
+         <section class="brand-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-12 col-md-12">
+                        <div class="first-row row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="{{ url_for('static',filename='img/brands/logo1.png')}}" alt="Brand-1 ">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="{{ url_for('static',filename='img/brands/logo2.png')}}" alt="Brand-2 ">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="{{ url_for('static',filename='img/brands/logo3.png')}}" alt="Brand-3 ">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="{{ url_for('static',filename='img/brands/logo4.png')}}" alt="Brand-4">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="{{ url_for('static',filename='img/brands/logo5.png')}}" alt="Brand-5 ">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="{{ url_for('static',filename='img/brands/logo6.png')}}" alt="Brand-6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-12 col-md-12">
+                        <div class="experience-area">
+                            <div class="d-flex flex-row years-area">
+                                <h2 class="p-3 years">6</h2>
+                                <h2>
+                                    <span>Technologies</span>
+                                    <span style='padding-left: 40px;'>and</span>
+                                    <span>Algorithms</span>
+                                </h2>
+                            </div>
+                            <div class="d-flex flex-row flex-wrap call-area">
+                            <a target="_blank" href="https://docs.google.com/document/d/1DCw6otNoKVd33Z5BU2vf5je6CpauUsMkC0rcqaukpfk" class="text-uppercase h4 font-roboto">Learn more</a>
+                            </div>
+                            <div class="bg-panel"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  ======================== End Brand Area ==============================  -->
+
+        <!--  ======================== Testimonials Area ==============================  -->
+
+        <section id="testimonials" class="about-area">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <div class="about-title">
+                            <h1 class="text-uppercase title-h1">Testimonials</h1>
+                            <p class="para">
+                                Here are just a few of the many user who love our product
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container carousel py-lg-5">
+                <div class="owl-carousel owl-theme">
+                    <div class="client row">
+                        <div class="col-lg-4 col-md-12 client-img">
+                            <img src="{{ url_for('static',filename='img/testimonials/t1.png')}}" alt="img1" class="img-fluid">
+                        </div>
+                        <div class="col-lg-8 col-md-12 about-client">
+                            <h4 class="text-uppercase">Atul Errabolu</h4>
+                            <p class="para">"As a cofounder, I set out to build the best product to help
+                                            students overcome the frustrating problems prevalent in highschool. I hope every kid
+                                            uses this product because I guarantee they will love it. I am proud to say my friend Dinesh and I helped
+                                            create this."</p>
+                        </div>
+                    </div>
+                    <div class="client row">
+                        <div class="col-lg-4 col-md-12 client-img">
+                            <img src="{{ url_for('static',filename='img/testimonials/t2.jpg')}}" alt="img2" class="img-fluid">
+                        </div>
+                        <div class="col-lg-8 col-md-12 about-client">
+                            <h4 class="text-uppercase">Dinesh Keserla</h4>
+                            <p class="para">"As the other cofounder, I knew I always wanted a product similar to this while
+                                            I was an underclassmen. I am proud Atul and I have created the best platform out there
+                                            to provide a solution to the demands of students."</p>
+                        </div>
+                    </div>
+                    <div class="client row">
+                        <div class="col-lg-4 col-md-12 client-img">
+                            <img src="{{ url_for('static',filename='img/testimonials/t3.png')}}" alt="img1" class="img-fluid">
+                        </div>
+                        <div class="col-lg-8 col-md-12 about-client">
+                            <h4 class="text-uppercase">Kris Hatch</h4>
+                            <p class="para">"As someone who liked sports but was also interested in STEM subjects,
+                                            I found it hard to find and choose classes I would be interested in. When Atul and
+                                            Dinesh showed me their course reccommendation algorithm,
+                                            I knew they had something special."</p>
+                        </div>
+                    </div>
+                    <div class="client row">
+                        <div class="col-lg-4 col-md-12 client-img">
+                            <img src="{{ url_for('static',filename='img/testimonials/t4.png')}}" alt="img1" class="img-fluid">
+                        </div>
+                        <div class="col-lg-8 col-md-12 about-client">
+                            <h4 class="text-uppercase">Steven Maddela</h4>
+                            <p class="para">"Their automatic GPA calculator has saved me so much time, I honestly feel
+                                            that this product shouldn't be free. Luckily, it is and I absolutley love how easy
+                                            and simple it is to use. I showed this product to my friends, and they all use it religously now."</p>
+                        </div>
+                    </div>
+                    <div class="client row">
+                        <div class="col-lg-4 col-md-12 client-img">
+                            <img src="{{ url_for('static',filename='img/testimonials/t5.png')}}" alt="img2" class="img-fluid">
+                        </div>
+                        <div class="col-lg-8 col-md-12 about-client">
+                            <h4 class="text-uppercase">Benny Nguyen</h4>
+                            <p class="para">"I really wish I had this product before.
+                                            It makes everything so much easier and I'm blown away at it.
+                                             Fun fact, when Zooba gave me a list of reccommend friends with shared interests,
+                                             it actually put my best friend at the top of the list (hint: it works!) "</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+       
+        <!--  ========================== Subscribe me Area ============================  -->
+        <section id="contact" class="subscribe-us-area">
+            <div class="container subscribe">
+                <div class="row">
+                    <div class="col-lg-12 text-center subscribe-title">
+                        <h4 class="text-uppercase">Contact Us</h4>
+                        <p class="para">If you need to report a bug, give us feedback, request a feature, or want
+                        to be a featured testimonial, email us.
+                        </p>
+                    </div>
+                </div>
+                <div class="d-sm-flex justify-content-center">
+                    <form class="w-50">
+                        <div class="col-lg-12 text-center subscribe-title">
+                            <p class="para">zooba.company@gmail.com
+                            </p>
+                            <!-- <div class="col input-textbox">
+                                <input type="text" id="txtemail" class="form-control" placeholder="Enter your email">
+                            </div> -->
+                            <div class="col">
+                                <div class="btn-submit">
+                                    <a href="mailto:zooba.company@gmail.com" class="btn btn-light">Email</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!--  ========================== End Subscribe me Area ============================  -->
+
+
+    </main>
+    <!--  ======================= End Main Area ================================ -->
+
+    <footer class="footer-area">
+        <div class="container">
+            <div class="">
+                <div class="social text-center">
+                    <h5 class="text-uppercase">Follow Us</h5>
+                    <a target="_blank" href="https://www.instagram.com/zoobavrhs/"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="copyrights text-center">
+                    <a target="_blank" href="https://docs.google.com/document/d/1Ia8I0XNUxz5V4s-xnyYi9eVQJBm3kjw0n_fToqs-R18"> Resources</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--  Jquery js file  -->
+    <script src="{{ url_for('static',filename='js/jquery.3.4.1.js')}}"></script>
+
+    <!--  Bootstrap js file  -->
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js')}}"></script>
+
+    <!--  isotope js library  -->
+    <script src="{{ url_for('static',filename='vendor/isotope/isotope.min.js')}}"></script>
+
+    <!--  Magnific popup script file  -->
+    <script src="{{ url_for('static',filename='vendor/Magnific-Popup/dist/jquery.magnific-popup.min.js')}}"></script>
+
+    <!--  Owl-carousel js file  -->
+    <script src="{{ url_for('static',filename='vendor/owl-carousel/js/owl.carousel.min.js')}}"></script>
+
+    <!--  custom js file  -->
+    <script src="{{ url_for('static',filename='js/main.js')}}"></script>
+
+</body>
+</html>

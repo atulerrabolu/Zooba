@@ -1,0 +1,7 @@
+from zooba import db
+from zooba.models import *
+db.create_all()
+x = User(id=0, name="Dinesh Keserla", friends={})
+db.session.add(x)
+db.session.commit()
+User.query.all()

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+        <form method="POST" action="">
+            <h1>
+                New Course <input type="text" name="course" placeholder="ex: Algebra 2" required>
+            </h1>
+            <h2>About <textarea rows="5" cols="80" name="about" required></textarea></h2>
+        </br>
+            {% for course in courses %}
+                <h2>{{course}} <input type="number" name="{{course}}--num" placeholder="0-9" pattern="[0-9]{1,3}" required value=10></h2>
+                <h5>Is PreReq<input type="checkbox" name="{{course}}--check"></h5>
+                
+            {% endfor %}
+
+            
+          <input type="submit">
+            
+        </form>
+{% endblock %}

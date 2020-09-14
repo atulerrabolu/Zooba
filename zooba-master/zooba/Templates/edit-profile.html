@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <meta name="description" content="None">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/edit-profile.css">
+    <meta name="theme-color" content="#2F3BA2">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/services/s1.png') }}">
+</head>
+
+<body>
+    <div style="height: 350px; width: 100%;overflow: hidden;">
+        <img src="../static/profile_pics/{{current_user.profile_background}}" alt="..." style="min-height: 100%;min-width: 100%;"/>
+    </div>
+    <div id="gb-sidebar" class="gb-vertical-nav bg-white collapsible-bar">
+        <div class="py-4 px-3 mb-4 bg-light">
+            <div class="media d-flex align-items-center"><img src="../static/profile_pics/{{current_user.profile_photo}}" alt="..." width="65"
+                    class="mr-3 rounded-circle img-thumbnail shadow-sm" />
+                <div class="media-body">
+                    <h4 class="m-0">{{current_user.name}}</h4>
+                </div>
+            </div>
+        </div><a href="{{url_for('account')}}" class="nav-link">Account</a>
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item"></li>
+            <li class="nav-item"><a href="{{url_for('GPA')}}" class="nav-link">GPA</a></li>
+            <li class="nav-item dropdown dropright"><a href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"> Friends 
+                {%if current_user.incoming_friend_requests.values()|length > 0 %}<span style="background-color:red" class="badge badge-primary badge-pill">{{current_user.incoming_friend_requests.values()|length}}</span> {% endif %}</a>
+                <div aria-labelledby="navbarDropdown" class="dropdown-menu"><a href="{{url_for('addFriends')}}" class="dropdown-item">Add Friends</a><a href="{{url_for('viewFriends')}}" class="dropdown-item">View Friends</a>
+                    <div class="dropdown-divider">
+                    </div><a href="{{url_for('incoming')}}" id="iqcw3g" class="dropdown-item">Incoming Requests {%if current_user.incoming_friend_requests.values()|length > 0 %}<span id="izn33q" class="badge badge-primary badge-pill" style="background-color:red; margin-left: 4px; margin-top: 4px;">{{current_user.incoming_friend_requests.values()|length}}</span> {% endif %}</a>
+                </div>
+            </li>
+            <li class="nav-item"></li>
+            <li class="nav-item"><a href="{{url_for('assignments')}}" class="nav-link">Assignments</a></li>
+        </ul>
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"><a href="{{url_for('courseRecommendation')}}" class="nav-link">Course Recommendation</a></li>
+        </ul>
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"><a href="{{url_for('logout')}}" class="nav-link">Logout</a></li>
+        </ul>
+    </div><!-- End vertical navbar -->
+    <!-- Page content holder -->
+    <div id="gb-main-bar-content" class="page-content collapsible-bar-1 pl-5 pr-5 pb-2">
+        <form method="POST" action="" enctype = "multipart/form-data">
+            <div class="container-fluid mt-2 mb-5">
+                <div class="header">
+                    <!-- Image -->
+                    <div class="container-fluid">
+                        <!-- Body -->
+                        <div class="header-body mt-2 mb-5">
+                            <div class="row align-items-end">
+                                <div class="col-auto">
+                                    <!-- Avatar -->
+                                    <div class="avatar avatar-xxl header-avatar-top"><img src="../static/profile_pics/{{current_user.profile_photo}}" alt="..."
+                                            class="avatar-img rounded-circle border border-4 border-body" /></div>
+                                </div>
+                                <div class="col mb-3 ml-n3 ml-md-n2">
+                                    <!-- Pretitle -->
+                                    <!-- Title -->
+                                    <h1 class="header-title">{{current_user.name}}</h1>
+                                </div>
+                                <div class="col-12 col-md-auto mt-2 mb-5">
+                                    <!-- Button -->
+                                </div>
+                            </div> <!-- / .row -->
+                            <div class="row align-items-center mt-3"></div>
+                            <section class="bdg-sect">
+                                <h3 class="text-left">Update Images</h3>
+                            </section>
+                            <section class="bdg-sect">
+                                <p class="paragraph">Update Profile Picture</p>
+                            </section><input type="file" name="profile_pic" class="form-control-file" accept="image/*"/>
+                            <p class="paragraph">Update Background Picture </p>
+                            <input type="file" name="profile_bac" class="form-control-file" accept="image/*"/>
+                        </div> <!-- / .header-body -->
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- Nav -->
+                    <div class="container-fluid py-5">
+                        <h3 id="i2keh" class="text-left">Update Socials</h3>
+                        <p id="imwzlm">Update Instagram</p><input type="text" name="instagram" {% if current_user.instagram != None %} value="{{current_user.instagram}}" {% endif %} placeholder="Enter Instagram" class="form-control" />
+                        <p id="i3pt8m">Update Snapchat</p><input type="text" name="snapchat" {% if current_user.snapchat != None %} value="{{current_user.snapchat}}" {% endif %} placeholder="Enter Snapchat" class="form-control" />
+                        <p id="i3m2er">Update Email Address</p><input type="text" name="email" {% if current_user.email != None %} value="{{current_user.email}}" {% endif %} placeholder="Enter Email Address" class="form-control" />
+                    </div>
+                    <div class="container-fluid py-5">
+                        <h3 class="text-left">Update Bio</h3><input type="text" name="about_me" placeholder="Enter Bio" {% if current_user.about_me != None %} value="{{current_user.about_me}}" {% endif %} class="form-control" />
+                    </div>
+                    <div class="container-fluid py-5">
+                        <h3 id="i2keh" class="text-left">Update User Credentials</h3>
+                        <p id="imwzlm">Update Home Access Email</p><input type="text" name="hac_email" placeholder="Enter Home Access Email" value="{{current_user.hac_email}}" class="form-control" />
+                        <p id="imwzlm">Update Home Access Password</p><input type="text" name="hac_pass" placeholder="Enter Home Access Password" value="{{current_user.hac_pass}}" class="form-control" />
+                    </div>
+                    
+                    <div class="container-fluid py-5">
+                        <h4 id="ipw0wr">Add to Past Classes</h4>
+                        {% for course in pastCourses %}
+                            <div class="form-check">
+                                <input type="checkbox" name="{{course.name}}--check"  class="form-check-input" {% if course.name in current_user.past_courses.values()%} checked {% endif %}  >
+                                <label for="defaultCheck1" class="form-check-label"> {{course.name}} </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                </div>
+                <section class="bdg-sect">
+                    <p class="paragraph"></p>
+                    <p></p>
+                </section>
+            </div><input type="submit" class="btn btn-primary d-block d-md-inline-block lift" value="Save Profile"> <!-- Demo content -->
+        </form>
+    </div>
+    <!--Bootstrap Scripts-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js').then(function() {
+                console.log('Service Worker Registered');
+            });
+        }
+    </script>
+    <script src="../static/js/edit-profile.js"></script>
+</body>
+
+</html>

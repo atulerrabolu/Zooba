@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{course.name}}</title>
+    <meta name="description" content="None">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/courses.css">
+    <meta name="theme-color" content="#2F3BA2">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/services/s1.png') }}">
+</head>
+
+<body>
+    <div id="gb-sidebar" class="gb-vertical-nav bg-white collapsible-bar">
+        <div class="py-4 px-3 mb-4 bg-light">
+            <div class="media d-flex align-items-center"><img src="../static/profile_pics/{{current_user.profile_photo}}" alt="..." width="65"
+                    class="mr-3 rounded-circle img-thumbnail shadow-sm" />
+                <div class="media-body">
+                    <h4 class="m-0">{{current_user.name}}</h4>
+                </div>
+            </div>
+        </div><a href="{{url_for('account')}}" class="nav-link">Account</a>
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item"></li>
+            <li class="nav-item"><a href="{{url_for('GPA')}}" class="nav-link">GPA</a></li>
+            <li class="nav-item dropdown dropright"><a href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"> Friends 
+                {%if current_user.incoming_friend_requests.values()|length > 0 %}<span style="background-color:red" class="badge badge-primary badge-pill">{{current_user.incoming_friend_requests.values()|length}}</span> {% endif %}</a>
+                <div aria-labelledby="navbarDropdown" class="dropdown-menu"><a href="{{url_for('addFriends')}}" class="dropdown-item">Add Friends</a><a href="{{url_for('viewFriends')}}" class="dropdown-item">View Friends</a>
+                    <div class="dropdown-divider">
+                    </div><a href="{{url_for('incoming')}}" id="iqcw3g" class="dropdown-item">Incoming Requests {%if current_user.incoming_friend_requests.values()|length > 0 %}<span id="izn33q" class="badge badge-primary badge-pill" style="background-color:red; margin-left: 4px; margin-top: 4px;">{{current_user.incoming_friend_requests.values()|length}}</span> {% endif %}</a>
+                </div>
+            </li>
+            <li class="nav-item"></li>
+            <li class="nav-item"><a href="{{url_for('assignments')}}" class="nav-link">Assignments</a></li>
+        </ul>
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"><a href="{{url_for('courseRecommendation')}}" class="nav-link">Course Recommendation</a></li>
+        </ul>
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"><a href="{{url_for('logout')}}" class="nav-link">Logout</a></li>
+        </ul>
+    </div><!-- End vertical navbar -->
+    <!-- Page content holder -->
+    <div id="gb-main-bar-content" class="page-content collapsible-bar-1 pl-5 pr-5 pb-2">
+        <div class="container-fluid py-5">
+            <h1 class="heading">{{course.name}}</h1>
+            <section class="bdg-sect">
+                <hr />
+                <p class="paragraph">{{course.about_course}}</p>
+                <hr />
+            </section>
+            <div class="container-fluid py-5">
+                <h1 class="display-4">People Taking {{course.name}} Right Now</h1>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="p-2 px-3 text-uppercase">Users</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Similarity</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form method="POST" action="">
+                                {%for friend in friends%}
+                                    <tr>
+                                        <th scope="row" id="i3abq">
+                                            <div class="p-2"><img src="https://res.cloudinary.com/db8nknhbk/image/upload/v1563172515/faces/avatar-female-4_fy1ghq.jpg" alt="..." width="65"
+                                                    class="mr-3 rounded-circle img-thumbnail shadow-sm" />
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                        <h5 class="mb-0">{% if friend.id in current_user.friends.values() %}<a href="{{url_for('user', username=friend.site_user)}}"class="text-dark d-inline-block">{{friend.name}}</a> {% else %}{{friend.name}}{% endif %}</h5>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <td class="align-middle"><strong id="id7h3">{{friends[friend]}}%</strong></td>
+                                        <td class="align-middle">
+                                            {% if not(current_user.id in friend.incoming_friend_requests.values() or current_user.id in friend.friends.values()) %}
+                                                <input type="submit" class="btn btn-primary mb-2" value="Add {{friend.site_user}}" name="add" >
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </form>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="px-4 px-lg-0">
+            <!-- For demo purpose -->
+            <!-- End -->
+        </div><!-- Demo content -->
+    </div>
+    <!--Bootstrap Scripts-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js').then(function() {
+                console.log('Service Worker Registered');
+            });
+        }
+    </script>
+    <script src="../static/js/courses.js"></script>
+</body>
+
+</html>

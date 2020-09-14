@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+        <form method="POST" action="">
+
+            {% for course in courses %}
+                <h2>{{course}} <input type="radio" name="{{course}}--radio"></h2>
+            {% endfor %}
+
+          <input type="submit">
+            
+        </form>
+{% endblock %}

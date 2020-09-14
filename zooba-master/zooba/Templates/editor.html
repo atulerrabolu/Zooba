@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+        <form method="POST" action="">
+
+            <select name="courses">
+            {% for course in courses %}
+                <h2><option name="{{course}}--drop" value="{{course}}">{{course}}</option></h2>
+                
+            {% endfor %}
+
+          <input type="submit">
+            
+        </form>
+{% endblock %}

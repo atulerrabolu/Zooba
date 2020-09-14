@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Editing for {{course}}</h1>
+        <form method="POST" action="">
+          <h2>About <textarea rows="5" cols="80" name="about" required>{{course.about_course}}</textarea></h2>
+          {% for c in courses %}
+            {% if not (c|string()) == (course|string()) %}
+              <h2>{{c}} <input type="number" name="{{c}}--num" placeholder="0-9" pattern="[0-9]{1,3}" value="{{course.relatedCourses[(c|string())]}}"required></h2>
+                {% if ((c|string()) in course.preReqs.values()) %}
+                  <h5>Is PreReq<input type="checkbox" name="{{c}}--check" checked></h5>
+                {% else %}
+                  <h5>Is PreReq<input type="checkbox" name="{{c}}--check" ></h5>
+                {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          <input type="submit">
+            
+        </form>
+{% endblock %}

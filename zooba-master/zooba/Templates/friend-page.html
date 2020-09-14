@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>friend page</title>
+    <meta name="description" content="None">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/friend-page.css">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/services/s1.png') }}">
+    <meta name="theme-color" content="#2F3BA2">
+</head>
+
+<body>
+    <div style="height: 350px; width: 100%;overflow: hidden;">
+        <img src="../static/profile_pics/{{friend.profile_background}}" alt="..." style="min-height: 100%;min-width: 100%;"/>
+    </div>
+    <div id="gb-sidebar" class="gb-vertical-nav bg-white collapsible-bar">
+        <div class="py-4 px-3 mb-4 bg-light">
+            <div class="media d-flex align-items-center"><img src="../static/profile_pics/{{current_user.profile_photo}}" alt="..." width="65"
+                    class="mr-3 rounded-circle img-thumbnail shadow-sm" />
+                <div class="media-body">
+                    <h4 class="m-0">{{current_user.name}}</h4>
+                </div>
+            </div>
+        </div><a href="{{url_for('account')}}" class="nav-link">Account</a>
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item"></li>
+            <li class="nav-item"><a href="{{url_for('GPA')}}" class="nav-link">GPA</a></li>
+            <li class="nav-item dropdown dropright"><a href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"> Friends 
+                {%if current_user.incoming_friend_requests.values()|length > 0 %}<span style="background-color:red" class="badge badge-primary badge-pill">{{current_user.incoming_friend_requests.values()|length}}</span> {% endif %}</a>
+                <div aria-labelledby="navbarDropdown" class="dropdown-menu"><a href="{{url_for('addFriends')}}" class="dropdown-item">Add Friends</a><a href="{{url_for('viewFriends')}}" class="dropdown-item">View Friends</a>
+                    <div class="dropdown-divider">
+                    </div><a href="{{url_for('incoming')}}" id="iqcw3g" class="dropdown-item">Incoming Requests {%if current_user.incoming_friend_requests.values()|length > 0 %}<span id="izn33q" class="badge badge-primary badge-pill" style="background-color:red; margin-left: 4px; margin-top: 4px;">{{current_user.incoming_friend_requests.values()|length}}</span> {% endif %}</a>
+                </div>
+            </li>
+            <li class="nav-item"></li>
+            <li class="nav-item"><a href="{{url_for('assignments')}}" class="nav-link">Assignments</a></li>
+        </ul>
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"><a href="{{url_for('courseRecommendation')}}" class="nav-link">Course Recommendation</a></li>
+        </ul>
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"><a href="{{url_for('logout')}}" class="nav-link">Logout</a></li>
+        </ul>
+    </div><!-- End vertical navbar -->
+    <!-- Page content holder -->
+    <div id="gb-main-bar-content" class="page-content collapsible-bar-1 pl-5 pr-5 pb-2">
+        <div class="container-fluid mt-2 mb-5">
+            <div class="header">
+                <!-- Image -->
+                <div class="container-fluid">
+                    <!-- Body -->
+                    <div class="header-body mt-2 mb-5">
+                        <div class="row align-items-end">
+                            <div class="col-auto">
+                                <!-- Avatar -->
+                                <div class="avatar avatar-xxl header-avatar-top"><img src="../static/profile_pics/{{friend.profile_photo}}" alt="..."
+                                        class="avatar-img rounded-circle border border-4 border-body" /></div>
+                            </div>
+                            <div class="col mb-3 ml-n3 ml-md-n2">
+                                <!-- Pretitle -->
+                                <!-- <h6 class="header-pretitle"> Friends</h6> -->
+                                <!-- Title -->
+                                <h1 class="header-title">{{friend.name}}</h1>
+                            </div>
+                            <div class="col-12 col-md-auto mt-2 mb-5">
+                                <!-- Button -->
+                        </div> <!-- / .row -->
+                        <div class="row align-items-center mt-3"></div>
+                    </div> <!-- / .header-body -->
+                </div>
+            </div>
+            <div class="col">
+                <!-- Nav -->
+                <ul class="nav nav-tabs nav-overflow header-tabs">
+                    <li class="nav-item nav-link"><a target="_blank" href="https://www.instagram.com/{{friend.instagram}}/">Instagram - @{{friend.instagram}}</a></li>
+                    <li class="nav-item nav-link">Snapchat - {{friend.snapchat}}</li>
+                    <li class="nav-item nav-link"><a  href="mailto:{{friend.email}}">Email - {{friend.email}}</a></li>
+                    <li class="nav-item nav-link"></li>
+                </ul>
+                <h3 id="i2keh" class="text-left">About</h3>
+                <div id="ikjbe">{% if friend.about_me != None %} {{friend.about_me}} {% else %} Nothing yet! {% endif %}</div>
+                <div class="card-body" style="margin-bottom:35px">
+                    <div class="align-items-center row similarity-score"><img src="../static/img/friend page/heart-eyes.png" alt="..." height="85" width="85" class="avatar-img" style="margin:10px;margin-left: 25px;"/>
+                        <div class="col-auto">
+                            <!-- Avatar --><a href="project-overview.html" class="avatar avatar-lg"></a></div>
+                        <div class="col ml-n2">
+                            <!-- Title -->
+                            <h4 class="card-title mb-1 name" style="padding-bottom: 10px">Similarity Score</h4><!-- Text -->
+                            <!-- Progress -->
+                            <div class="row align-items-center no-gutters">
+                                <div class="col-auto"></div>
+                                <div class="col-auto">
+                                    <div class="small mr-2">{{similarityScore}}%</div>
+                                </div>
+                                <div class="col">
+                                    <!-- Progress -->
+                                    <div class="progress progress-sm">
+                                        
+                                        <div role="progressbar" aria-valuenow="{{similarityScore|round(0,'ceil')}}" aria-valuemin="0" aria-valuemax="100" style="width: {{similarityScore|round(method='ceil')}}%" class="progress-bar "></div>
+                                    </div>
+                                </div>
+                            </div> <!-- / .row -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Dropdown -->
+                            <div class="dropdown">
+                                <div class="dropdown-menu dropdown-menu-right"><a href="#!" class="dropdown-item"> Action </a><a href="#!" class="dropdown-item"> Another action </a><a href="#!"
+                                        class="dropdown-item"> Something else here </a></div>
+                            </div>
+                        </div>
+                    </div> <!-- / .row -->
+                </div>
+                
+                <div class="card" >
+                    <div class="card-header" >
+                        <h4>Current Classes</h4>
+                    </div>
+                    <div class="card-body" style="margin-bottom: -15px;">
+                        <hr id="ibrgtp" />
+                        <ul class="list-group">
+                            {% if friend.current_courses.values()|length != 0 %}
+                                {% for courseName in friend.current_courses.values() %}
+                                    
+                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span class="link">{% if Course.query.filter_by(name=courseName).first() != None %} <a href="{{url_for('course', course=courseName)}}">{{courseName}}</a> {%else%}{{courseName}}{% endif %}</span></li>
+                                {% endfor %}
+                            {% else %}
+                                No Current Courses Yet!
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                <div id="i7oon" class="card" style="margin-top:60px">
+                    <div class="card-header">
+                        <h4 id="i25dfo">Past Classes</h4>
+                    </div>
+                    <div class="card-body" style="margin-bottom: -15px;">
+                        <hr id="ilk0iu" />
+                        <ul class="list-group">
+                            {% if friend.past_courses.values()|length != 0 %}
+                                {% for courseName in friend.past_courses.values() %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span class="link">{% if Course.query.filter_by(name=courseName).first() != None %} <a href="{{url_for('course', course=courseName)}}">{{courseName}}</a> {%else%}{{courseName}}{% endif %}</span></li>
+                                {% endfor %}
+                            {% else %}
+                                No Past Courses Yet!
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <section class="bdg-sect">
+                <p class="paragraph"></p>
+                <p></p>
+            </section>
+        </div><!-- Demo content -->
+    </div>
+    <!--Bootstrap Scripts-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    
+    <script src="../static/js/friend-page.js"></script>
+</body>
+
+</html>

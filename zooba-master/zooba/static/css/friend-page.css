@@ -1,0 +1,224 @@
+.gb-vertical-nav {
+	min-width: 17rem;
+	width: 17rem;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+	transition: all 0.4s;
+	z-index: 9999 !important;
+}
+
+.page-content {
+	width: calc(100% - 17rem);
+	margin-left: 17rem;
+	transition: all 0.4s;
+	min-height: 80vh;
+}
+
+#gb-sidebar.active {
+	margin-left: -17rem;
+}
+
+#gb-main-bar-content.active {
+	width: 100%;
+	margin: 0;
+}
+
+.header-img-top {
+	width: 100%;
+}
+
+.avatar {
+	margin-top: -90px;
+}
+
+.avatar-xxl img {
+	width: 200px !important;
+	height: auto;
+}
+
+.pricing .card {
+	border: none;
+	border-radius: 1rem;
+	transition: all 0.2s;
+	box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.pricing hr {
+	margin: 1.5rem 0;
+}
+
+.pricing .card-title {
+	margin: 0.5rem 0;
+	font-size: 0.9rem;
+	letter-spacing: .1rem;
+	font-weight: bold;
+}
+
+.pricing .card-price {
+	font-size: 3rem;
+	margin: 0;
+}
+
+.pricing .card-price .period {
+	font-size: 0.8rem;
+}
+
+.pricing ul li {
+	margin-bottom: 1rem;
+}
+
+.pricing .text-muted {
+	opacity: 0.7;
+}
+
+.pricing .btn {
+	font-size: 80%;
+	border-radius: 5rem;
+	letter-spacing: .1rem;
+	font-weight: bold;
+	padding: 1rem;
+	opacity: 0.7;
+	transition: all 0.2s;
+}
+
+.container-fluid.mt-2.mb-5 {
+	margin: 8px 0 48px 0;
+}
+
+.container.py-5 {
+	margin: 0 0;
+	padding: 0 0 0 0;
+}
+
+.link a:hover {
+	text-decoration: none;
+}
+
+.text-left {
+	padding: 15px 0 0 0;
+}
+
+#ikjbe {
+	padding: 0 0 25px 0;
+}
+
+#iezyz {
+	margin: 0 0 10px 0;
+}
+
+.card {
+	padding: 0 0 25px 0;
+	margin: 0 0 15px 0;
+}
+
+#ilk0iu {
+	margin: 0 0 16px 0;
+}
+
+.avatar-lg img {
+	height: 100px;
+	width: auto;
+}
+
+.avatar-img.rounded {
+	width: 120px;
+	height: 92px;
+}
+
+.row.align-items-center {
+	border-radius: 0;
+	border: 0 solid rgb(33, 37, 41);
+}
+
+.col.ml-n2 {
+	font-size: large;
+}
+
+.align-items-center.row.similarity-score {
+	border: 5px solid rgb(211, 211, 211);
+	margin: 0 -20px 0 -20px;
+	border-radius: 10px;
+}
+
+#ibrgtp {
+	margin: 0 0 10px 0;
+}
+
+#i2681y {
+	width: 29%;
+}
+
+#inisva {
+	width: 29%;
+}
+
+#i0xf68 {
+	width: 29%;
+}
+
+.col.ml-n2.score-class {
+	padding: 0 15px 0 0;
+}
+
+#i1cx2j {
+	width: 29%;
+}
+
+#ijf2lf {
+	width: 29%;
+}
+
+#i23sb4 {
+	width: 29%;
+}
+
+#i6lzvj {
+	width: 29%;
+}
+
+#navbarDropdown {
+	padding-right: 5px;
+}
+
+#i56di5 {
+	background-color: red;
+}
+
+.badge.badge-primary.badge-pill {
+	float: right;
+}
+
+@media (min-width: 992px) {
+	.pricing .card:hover {
+		margin-top: -.25rem;
+		margin-bottom: .25rem;
+		box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+	}
+
+	.pricing .card:hover .btn {
+		opacity: 1;
+	}
+}
+
+@media (max-width: 768px) {
+	#gb-sidebar {
+		margin-left: -17rem;
+	}
+
+	#gb-sidebar.active {
+		margin-left: 0;
+	}
+
+	#gb-main-bar-content {
+		width: 100%;
+		margin: 0;
+	}
+
+	#gb-main-bar-content.active {
+		margin-left: 17rem;
+		width: calc(100% - 17rem);
+	}
+}

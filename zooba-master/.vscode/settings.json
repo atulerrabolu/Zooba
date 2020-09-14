@@ -1,0 +1,6 @@
+{
+    "css.lint.argumentsInColorFunction": "ignore",
+    "css.lint.unknownProperties": "ignore",
+    "css.validate": false,
+    "javascript.validate.enable" : false
+}
