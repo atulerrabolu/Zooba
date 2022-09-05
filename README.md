@@ -1,6 +1,7 @@
 # Zooba
 Course management site that I co-developed with a friend which scrapes the Home Access database to automatically calculate GPA, provide assignment notifications, and compute course recommendations. The site also includes social networking functionality.
 
+## Site Screenshots
 ![image](https://user-images.githubusercontent.com/54562054/188413809-298b600a-d2ef-4b81-ab97-3080243ce53f.png)
 
 ![image](https://user-images.githubusercontent.com/54562054/188413843-42b32fe2-816b-4e8f-a86f-563cf34d8cc1.png)
